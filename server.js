@@ -1,4 +1,4 @@
-var ttp = require('http');
+var http = require('http');
 var requests=0;
 var podname= process.env.HOSTNAME;
 var startTime;

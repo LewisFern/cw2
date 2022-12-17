@@ -25,7 +25,7 @@ node {
 
     stage('Create Container') {
           steps {
-                sh 'docker container run --detach --publish 80:80 --name cw2_server $DOCKERID/cw2_server:1.0'
+                sh 'docker container run --detach --publish 80:80 --name cw2_server lewisfern/cw2_server:1.0'
             }
     }
 

@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("Dockerfile/cw2_server")
+        app = docker.build("lewisfern/cw2_server")
     }
 
     stage('Test image') {

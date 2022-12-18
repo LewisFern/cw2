@@ -35,7 +35,7 @@ node {
     }
 
     stage('Pull to Production Server') {
-    sshagent(['my-ssh-key]) {
+    sshagent(['my-ssh-key]){
 	 sh 'docker pull lewisfern/cw2_server:latest ubuntu@ip-172-31-87-91.ec2.internal:/home/ubuntu/cw2/'
 	}    
        }

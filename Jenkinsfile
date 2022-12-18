@@ -33,5 +33,17 @@ node {
             app.push("latest")
         }
     }
+
+    stage('Pull to Production Server') {
+    sshagent(['my-ssh-key]) {
+	 sh 'docker pull lewisfern/cw2_server:latest ubuntu@ip-172-31-87-91.ec2.internal:/home/ubuntu/cw2/'
+	}    
+       }
+
+    stage('Rollout Update to Kubernetes') {
+         sshagent(['my-ssh-key]){
+         sh 'kubectl set image deployment/cw2-image cw2-image=lewisfern/cw2_server:latest ubuntu@ip-172-3-87-91.ec2.internal:/home/ubuntu/cw2/'
+         }
+	}
 }
 
